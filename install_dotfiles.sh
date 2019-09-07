@@ -5,8 +5,9 @@ do
     then
         rm ~/.$file
     fi
-    ln -sv $(pwd)/files/$file ~/.$file
+    ln -svf $(pwd)/files/$file ~/.$file
     echo "Installed "$file
 done
 
+ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
 source ~/.bashrc
