@@ -9,5 +9,6 @@ do
     echo "Installed "$file
 done
 
+mkdir -p ~/.vim/colors
 ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
 source ~/.bashrc
