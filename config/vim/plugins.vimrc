@@ -7,6 +7,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
+Plug 'luochen1990/rainbow'
 " Initialize plugin system
 call plug#end()
 

@@ -16,7 +16,9 @@ set cmdheight=2
 
 set showmatch
 set matchtime=10
-
+"fix color and blinking while matching brackets
+hi MatchParen cterm=bold ctermbg=none ctermfg=red
+let g:rainbow_active = 1
 " Useful mappings for managing tabs
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
