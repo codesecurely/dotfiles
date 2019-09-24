@@ -122,8 +122,12 @@ url="cht.sh/"
 curl $url$1
 }
 
-function localip() {
+function lanip() {
 ip route get 8.8.8.8 | awk '{print $7; exit}'
+}
+
+function wanip() {
+	dig @resolver1.opendns.com ANY myip.opendns.com +short
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
