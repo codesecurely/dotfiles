@@ -21,4 +21,6 @@ do
 done
 
 mkdir -p ~/.vim/colors
+mkdir -p ~/.vim/tmp
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
