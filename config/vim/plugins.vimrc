@@ -8,6 +8,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'luochen1990/rainbow'
+Plug 'davidhalter/jedi-vim'
 " Initialize plugin system
 call plug#end()
 

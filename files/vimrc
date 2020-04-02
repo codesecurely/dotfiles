@@ -16,6 +16,7 @@ set cmdheight=2
 
 set showmatch
 set matchtime=10
+set clipboard=unnamedplus
 "fix color and blinking while matching brackets
 hi MatchParen cterm=bold ctermbg=none ctermfg=red
 let g:rainbow_active = 1
