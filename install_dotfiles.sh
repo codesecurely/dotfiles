@@ -22,5 +22,11 @@ done
 
 mkdir -p ~/.vim/colors
 mkdir -p ~/.vim/tmp
+mkdir -p ~/.config/nvim/colors
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
+ln -svf $(pwd)/config/nvim/colors/molokai.vim ~/.config/nvim/colors/molokai.vim
+
+bash install_nvim.sh
+

@@ -5,7 +5,11 @@ colorscheme molokai
 
 set showcmd
 set number
+set encoding=utf-8
+
 syntax on
+
+
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -13,10 +17,24 @@ set tabstop=4
 " for bigger cmd line
 set cmdheight=2
 
+" Enable code folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with spacebar
+nnoremap <space> za
 
 set showmatch
 set matchtime=10
-set clipboard=unnamedplus
+
+" copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
+"toggle paste mode
+set pastetoggle=<F3>
+
 "fix color and blinking while matching brackets
 hi MatchParen cterm=bold ctermbg=none ctermfg=red
 let g:rainbow_active = 1
@@ -32,7 +50,7 @@ nnoremap <leader>Right :tabnext<CR>
 map <leader>w :w!<cr>
 
 " Run program
-map <leader>r :make<CR>
+map <leader>r :QuickRun<CR>
 
 nnoremap <C-R> :term python % <CR>
 " set ctermfg to desired line numbers colors and ctermbg to NONE for
@@ -78,5 +96,42 @@ nnoremap <silent> <Leader>bl :setnomodifiable<CR> " (L)ock the current buffer"
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <F5> :UndotreeToggle<CR>
-" reloads .vimrc -- making all changes active
+
+"Code settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \| set softtabstop=4
+    \| set shiftwidth=4
+    \| set textwidth=79
+    \| set expandtab
+    \| set autoindent
+    \| set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \| set softtabstop=2
+    \| set shiftwidth=2
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter *.py,*.pyw  match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+let g:quickrun_config = {
+      \'*': {
+      \'outputter/buffer/split': ':10split'},}
+
+"reloads .vimrc -- making all changes active
 nnoremap <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>

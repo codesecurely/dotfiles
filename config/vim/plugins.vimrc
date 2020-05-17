@@ -8,7 +8,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'luochen1990/rainbow'
-Plug 'davidhalter/jedi-vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
+Plug 'thinca/vim-quickrun'
 " Initialize plugin system
 call plug#end()
 
