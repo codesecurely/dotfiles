@@ -2,8 +2,9 @@
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.zsh_history
-EDITOR=vim
+EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$HOME/.local/bin:$PATH
 
 ZSH_THEME="aphrodite"
 

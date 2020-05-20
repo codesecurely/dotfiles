@@ -89,6 +89,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Interactive code
     Plug 'metakirby5/codi.vim'
     Plug 'thinca/vim-quickrun'
+    Plug 'davidhalter/jedi-vim'
   endif
 
 

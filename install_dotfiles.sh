@@ -29,4 +29,3 @@ ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
 ln -svf $(pwd)/config/nvim/colors/molokai.vim ~/.config/nvim/colors/molokai.vim
 
 bash install_nvim.sh
-

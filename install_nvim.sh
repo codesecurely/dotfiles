@@ -65,7 +65,7 @@ installcocextensions() { \
 
 copyconfig() { \
   echo "Installing Nvim Mach 2 configuration"
-  ln -svf $(pwd)/config/nvim ~/.config/nvim
+  ln -svf $(pwd)/config/nvim ~/.config
 }
 
 installplugins() { \
