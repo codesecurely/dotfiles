@@ -6,6 +6,7 @@ colorscheme molokai
 set showcmd
 set number
 set encoding=utf-8
+set cursorline
 
 syntax on
 
@@ -42,8 +43,8 @@ let g:rainbow_active = 1
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>tc :tabclose<CR>
-nnoremap <leader>tm :tabmove 
-nnoremap <A-Left> :tabprevious<CR>                                                                            
+nnoremap <leader>tm :tabmove
+nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
 nnoremap <leader>Right :tabnext<CR>
 " Fast saving
@@ -56,6 +57,11 @@ nnoremap <C-R> :term python % <CR>
 " set ctermfg to desired line numbers colors and ctermbg to NONE for
 " transparency
 highlight LineNr term=bold cterm=NONE ctermfg=White ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" transparent background to inherit terminal colors
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
 
 "set leader to , instead of default /
 let mapleader = ','

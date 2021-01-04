@@ -43,9 +43,9 @@ aphrodite_get_prompt() {
 
 	# 256-colors check (will be used later): tput colors
 	
-	echo -n "%B%F{12}%n%f" # User
-	echo -n "%F{3}@%f" # at
-	echo -n "%F{12}%m%f" # Host
+	echo -n "%B%F{10}%n%f" # User
+	echo -n "%F{255}@%f" # at
+	echo -n "%F{10}%m%f" # Host
 	echo -n "%F{8}:%f" # in 
 	echo -n "%{$reset_color%}%~" # Dir
 	echo -n "$(aphrodite_get_current_branch)" # Git branch
