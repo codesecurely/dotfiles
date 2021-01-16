@@ -28,4 +28,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
 ln -svf $(pwd)/config/nvim/colors/molokai.vim ~/.config/nvim/colors/molokai.vim
 
-bash install_nvim.sh
+git clone https://github.com/tmux-plugins/tpm.git $(pwd)/config/tmux/plugins/tpm
+git clone https://github.com/jimeh/tmux-themepack.git $(pwd)/config/tmux/tmux-themepack
