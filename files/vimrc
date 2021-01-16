@@ -1,7 +1,7 @@
 " load plugins
 so ~/dotfiles/config/vim/plugins.vimrc
 
-colorscheme molokai
+colorscheme jellybeans
 
 set showcmd
 set number
