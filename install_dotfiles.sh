@@ -9,7 +9,7 @@ sed -i.bak 's/^[[:space:]]*ZSH_THEME=.*/ZSH_THEME="aphrodite"/' ~/.zshrc
 echo "custom theme installed"
 
 #install the dotfiles
-for dotfile in $(pwd)/files/* 
+for dotfile in $(pwd)/files/*
 do
     file=$(basename $dotfile)
     if [ -L ~/.$file ]
@@ -25,8 +25,9 @@ mkdir -p ~/.vim/tmp
 mkdir -p ~/.config/nvim/colors
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -svf $(pwd)/config/vim/colors/molokai.vim ~/.vim/colors/molokai.vim
-ln -svf $(pwd)/config/nvim/colors/molokai.vim ~/.config/nvim/colors/molokai.vim
+ln -svf $(pwd)/config/vim/colors/jellybeans.vim ~/.vim/colors/jellybeans.vim
+ln -svf $(pwd)/config/nvim/colors/jellybeans.vim ~/.config/nvim/colors/jellybeans.vim
+ln -svf $(pwd)/config/ranger ~/.config/
 
 git clone https://github.com/tmux-plugins/tpm.git $(pwd)/config/tmux/plugins/tpm
 git clone https://github.com/jimeh/tmux-themepack.git $(pwd)/config/tmux/tmux-themepack

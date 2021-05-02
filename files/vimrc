@@ -10,7 +10,8 @@ set cursorline
 
 syntax on
 
-
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python2'
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -22,7 +23,7 @@ set cmdheight=2
 set foldmethod=indent
 set foldlevel=99
 " Enable folding with spacebar
-nnoremap <space> za
+" nnoremap <space> za
 
 set showmatch
 set matchtime=10
@@ -32,7 +33,7 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
-
+nmap <C-a> ggVG
 "toggle paste mode
 set pastetoggle=<F3>
 
@@ -44,9 +45,6 @@ nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>tm :tabmove
-nnoremap <A-Left> :tabprevious<CR>
-nnoremap <A-Right> :tabnext<CR>
-nnoremap <leader>Right :tabnext<CR>
 " Fast saving
 map <leader>w :w!<cr>
 
@@ -131,13 +129,16 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
 let g:quickrun_config = {
       \'*': {
       \'outputter/buffer/split': ':10split'},}
-
+" enable ncm2 for all buffers
+autocmd BufEnter *.py call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 "reloads .vimrc -- making all changes active
 nnoremap <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
