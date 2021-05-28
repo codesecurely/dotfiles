@@ -1,6 +1,9 @@
 " load plugins
 so ~/dotfiles/config/vim/plugins.vimrc
 
+"set leader to , instead of default /
+let mapleader = ','
+
 colorscheme jellybeans
 
 set showcmd
@@ -37,9 +40,20 @@ nmap <C-a> ggVG
 "toggle paste mode
 set pastetoggle=<F3>
 
-"fix color and blinking while matching brackets
+" FZF
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fw :Windows<CR>
+nnoremap <leader>fh :History
+nnoremap <leader>fc :Colors<CR>
+nnoremap <leader>ft :Filetypes<CR>
+
+" fix color and blinking while matching brackets
 hi MatchParen cterm=bold ctermbg=none ctermfg=red
 let g:rainbow_active = 1
+
 " Useful mappings for managing tabs
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
@@ -60,16 +74,6 @@ highlight LineNr term=bold cterm=NONE ctermfg=White ctermbg=NONE gui=NONE guifg=
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
-
-"set leader to , instead of default /
-let mapleader = ','
-
-" absolute width of netrw window
-" let g:netrw_winsize = -28
-
-" tree-view
-" let g:netrw_liststyle = 3
-
 " command to use sudo
 cmap w!! %!sudo tee > /dev/null %
 
@@ -84,19 +88,6 @@ let g:netrw_browse_split = 3
 
 " Leader C is the prefix for code related mappîngs 
 noremap <silent> <Leader>cc :TComment<CR>
-
-" Leader F is for file related mappîngs (open, browse...) 
-nnoremap <silent> <Leader>f :CtrlP<CR>
-nnoremap <silent> <Leader>fm :CtrlPMRU<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ctrl B for buffer related mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR> " cycle between buffer
-nnoremap <silent> <Leader>bb :bn<CR> "create (N)ew buffer
-nnoremap <silent> <Leader>bd :bdelete<CR> "(D)elete the current buffer
-nnoremap <silent> <Leader>bu :bunload<CR> "(U)nload the current buffer
-nnoremap <silent> <Leader>bl :setnomodifiable<CR> " (L)ock the current buffer"
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <F5> :UndotreeToggle<CR>
@@ -140,5 +131,6 @@ let g:quickrun_config = {
 autocmd BufEnter *.py call ncm2#enable_for_buffer()
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
+
 "reloads .vimrc -- making all changes active
 nnoremap <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>

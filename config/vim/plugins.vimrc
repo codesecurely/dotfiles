@@ -13,6 +13,8 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
 Plug 'thinca/vim-quickrun'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
