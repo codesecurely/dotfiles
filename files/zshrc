@@ -4,7 +4,7 @@ SAVEHIST=1000000
 HISTFILE=~/.zsh_history
 EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/tools/bin:$PATH
 
 ZSH_THEME="aphrodite"
 
@@ -28,7 +28,6 @@ alias yayinstalledrm="yay -Qeq | fzf -m --preview 'yay -Qi {1}' | xargs -ro yay 
 alias ls="lsd"
 alias open="xdg-open"
 alias top="bpytop"
-alias nvim="stty stop '' -ixoff ; vim"
 
 ### PLUGINS
 source ~/dotfiles/config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

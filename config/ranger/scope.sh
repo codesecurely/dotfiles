@@ -39,6 +39,14 @@ HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
 PYGMENTIZE_STYLE='autumn'
 
+drop_bigsize() {
+    # 204800 == 200 MB * 1024
+    # change this number for different sizes
+    if [[ `du "${FILE_PATH}" | cut -f1` -gt 204800 ]]; then
+        echo '----- TOO BIG FILE -----'
+        exit 0
+    fi
+}
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
@@ -90,12 +98,12 @@ handle_image() {
     local mimetype="${1}"
     case "${mimetype}" in
         # SVG
-        # image/svg+xml)
-        #     convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-        #     exit 1;;
+        image/svg+xml)
+            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+            exit 1;;
 
         # Image
-        image/*)
+        image/png | image/jpeg)
             local orientation
             orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
             # If orientation data is present and the image actually
@@ -209,6 +217,8 @@ MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
+
+drop_bigsize
 handle_extension
 handle_mime "${MIMETYPE}"
 handle_fallback
