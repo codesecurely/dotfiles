@@ -2,7 +2,7 @@
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.zsh_history
-EDITOR=nvim
+EDITOR=vim
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/.local/bin:$HOME/tools/bin:$PATH
 
@@ -32,12 +32,5 @@ alias top="bpytop"
 ### PLUGINS
 source ~/dotfiles/config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 #source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
-function pokecheck()
-{
-	/usr/bin/brave "https://bulbapedia.bulbagarden.net/wiki/$1_(Pok%C3%A9mon)/Generation_VI_learnset#By_TM.2FHM"
-}
 
